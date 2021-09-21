@@ -1,4 +1,6 @@
-import { FormControlLabel, Grid, makeStyles, Switch, TextField } from '@material-ui/core';
+import { Grid, makeStyles, TextField } from '@material-ui/core';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Switch from '@material-ui/core/Switch';
 // import { makeStyles } from '@material-ui/styles';
 import React, { useEffect, useState } from 'react';
 
