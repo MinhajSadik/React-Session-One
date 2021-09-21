@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import { Grid, makeStyles, TextField } from '@material-ui/core';
+import { FormControlLabel, Grid, makeStyles, Switch, TextField } from '@material-ui/core';
 // import { makeStyles } from '@material-ui/styles';
 import React, { useEffect, useState } from 'react';
 
@@ -14,10 +13,15 @@ const useStyles = makeStyles((theme) => ({
     button:{
         marginRight: theme.spacing(2),
         marginBottom: theme.spacing(2)
+    },
+    gridmargin:{
+        marginBottom: theme.spacing(1),
     }
 }))
 
 const initialContact = {
+    status: true,
+    isCompany: false,
     firstName: '',
     lastName: '',
     mobileNumber: '',
@@ -31,8 +35,40 @@ const Contacts = () => {
         console.log(currentContact);
 
     }, [currentContact])
+
     return (<>
-        <Grid container spacing={1}>
+        <Grid container justify="center" alignItems="center" className={classes.gridmargin}>
+            <Grid item xs={6}>
+            <FormControlLabel
+            control={
+                <Switch
+                    checked={currentContact.status}
+                    onChange={(e) => setCurrentContact({...currentContact, status:e.target.checked})}
+                    name="checkedB"
+                    color="primary"
+                    />
+                    }
+                    label="Active"
+                />
+            </Grid>
+
+            <Grid item xs={6}>
+            <FormControlLabel
+            control={
+                <Switch
+                    checked={currentContact.isCompany}
+                    onChange={(e) => setCurrentContact({...currentContact, isCompany:e.target.checked})}
+                    name="checkedB"
+                    color="primary"
+                    />
+                    }
+                    label="Compnay"
+                />
+            </Grid>
+            
+        </Grid>
+
+        <Grid container spacing={1} className={classes.gridmargin}>
             <Grid item xs={3}>
                 <TextField id="outlined-besic" label='First-Name' variant='outlined' fullWidth
                 value={currentContact.firstName} onChange={(e) => setCurrentContact({...currentContact, firstName:e.target.value})} />
