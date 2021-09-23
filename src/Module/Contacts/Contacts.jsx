@@ -33,6 +33,11 @@ const Contacts = () => {
     const classes = useStyles();
 
     const [currentContact, setCurrentContact] = useState(initialContact);
+    const [allContacts, setAllContacts] = useState([])
+
+    const getAllContacts = async () => {
+        
+    }
     useEffect(() => {
         console.log(currentContact);
 
